@@ -5,7 +5,7 @@ var current_date = new Date();
 var years = current_date.getFullYear();
 var months = current_date.getMonth();
 var dates = current_date.getDate();
-    
+var myIndex = 0;   
 
 var country_index=0;
 if (window.XMLHttpRequest) {
@@ -20,8 +20,11 @@ if (this.readyState == 4 && this.status == 200) {
     data = JSON.parse(this.responseText);
     
     searchFunction();
+    carousel();
     
-   console.log(data.Global.TotalConfirmed);
+    
+   console.log("hello");
+   
    }
   
 };
@@ -78,4 +81,16 @@ function startTime() {
   function checkTime(i) {
     if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
     return i;
+  }
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 9000);    
   }
