@@ -35,7 +35,7 @@ xhttp.send();
 
 
 function searchFunction(){
-    document.getElementById("date").innerHTML = dates + "/" + (months+1) + "/" + years;
+    document.getElementById("date").innerHTML = dates + "/" + months + "/" + years;
     
     var country_name = document.getElementById("country").value;
     for(i;i<(data.length-1);i++) {
@@ -47,8 +47,7 @@ function searchFunction(){
     }
         if(data[i].country != country_name){
                     alert("No data found");
-                    window.location.reload();
-
+                    location.reload();
                 }
     
     document.getElementById("total_affected").innerHTML = data[country_index].cases; 
@@ -56,7 +55,7 @@ function searchFunction(){
     document.getElementById("total_recovery").innerHTML =data[country_index].recovered;
     document.getElementById("new_affected").innerHTML = data[country_index].todayCases;
     document.getElementById("new_death").innerHTML = data[country_index].todayDeaths;
-    document.getElementById("active").innerHTML = data[country_index].active;
+    document.getElementById("active").innerHTML = data[country_index].cases;
 
     
     // if (country_name== "Global"){
